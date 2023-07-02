@@ -1,0 +1,54 @@
+{
+  "persons": [
+    {
+      "name": "Arto Hellas",
+      "number": "040-123456",
+      "id": 1
+    },
+    {
+      "name": "Ada Lovelace",
+      "number": "39-44-5323523",
+      "id": 2
+    },
+    {
+      "name": "Dan Abramov",
+      "number": "12-43-234345",
+      "id": 3
+    },
+    {
+      "name": "Mary Poppendieck",
+      "number": "39-23-6423122",
+      "id": 4
+    },
+    {
+      "name": "Adekeye Taofeeq",
+      "number": "08067088474",
+      "id": 5
+    },
+    {
+      "name": "Ajetumobi Baliqees",
+      "number": "07046686003",
+      "id": 6
+    },
+    {
+      "name": "Bamisaye Rasheedah",
+      "number": "07053433253",
+      "id": 7
+    },
+    {
+      "name": "Woli Abdullah",
+      "number": "0832274407",
+      "id": 8
+    },
+    {
+      "name": "Ganiyu Owolabi",
+      "number": "09033546789",
+      "id": 9
+    },
+    {
+      "name": "Mariam Ahmed",
+      "number": "09046383242",
+      "id": 10
+    }
+  ]
+}

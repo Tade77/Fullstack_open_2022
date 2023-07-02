@@ -5,11 +5,22 @@ const PersonForm = (props) => {
     <div>
       <form onSubmit={props.addPerson}>
         <div>
-          Name: <input value={props.newName} onChange={props.handleNewName} />
+          Name:
+          <input
+            value={props.newName}
+            onChange={props.handleNewName}
+            type="text"
+            required
+          />
         </div>
         <div>
           Phone Numbers:
-          <input value={props.newNumber} onChange={props.handleNewNumber} />
+          <input
+            value={props.newNumber}
+            onChange={props.handleNewNumber}
+            type="number"
+            required
+          />
         </div>
 
         <div>

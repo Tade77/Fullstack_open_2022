@@ -1,7 +1,6 @@
 import React from "react";
 
-const Person = ({ persons, filtered }) => {
-  console.log(persons);
+const Person = ({ id, persons, filtered, handleDelete }) => {
   return (
     <div>
       <div>
@@ -12,6 +11,7 @@ const Person = ({ persons, filtered }) => {
           .map((person, personIndex) => (
             <li className="nameList" key={`persons${personIndex}`}>
               {person.name} {person.number}
+              <button onClick={() => handleDelete(person.id)}>Delete</button>
             </li>
           ))}
       </div>

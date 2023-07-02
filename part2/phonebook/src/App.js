@@ -1,35 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Filter from "./Filter";
 import Person from "./Person";
 import PersonForm from "./PersonForm";
-// console.log(PersonForm);
-
+// import axios from "axios";
+import services from "./services/PhonebookServices";
 const App = () => {
-  const [persons, setPersons] = useState([
-    { name: "Arto Hellas", number: "040-123456", id: 1 },
-    { name: "Ada Lovelace", number: "39-44-5323523", id: 2 },
-    { name: "Dan Abramov", number: "12-43-234345", id: 3 },
-    { name: "Mary Poppendieck", number: "39-23-6423122", id: 4 },
-  ]);
+  const [persons, setPersons] = useState([]);
 
   const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
   const [filtered, setFiltered] = useState("");
+  useEffect(() => {
+    services.getAll();
+  }, []);
 
   const addPerson = (event) => {
+    event.preventDefault();
     const nameObj = {
       name: newName,
       number: newNumber,
       id: persons.length + 1,
     };
-
-    setPersons(persons.concat(nameObj));
-    event.preventDefault();
-    // console.log("clicked", event.target);
+    setFiltered("");
+    setNewName("");
+    setNewNumber("");
     persons.find((person) => person.name === newName)
       ? setPersons(persons, alert(`${newName} is already added to phonebook`))
       : setPersons(persons.concat(nameObj));
+    setPersons(persons.concat(nameObj));
+    services.create();
   };
   const handleNewName = (event) => {
     setNewName(event.target.value);
@@ -41,6 +41,10 @@ const App = () => {
   };
   const handleSearch = (event) => {
     setFiltered(event.target.value);
+  };
+  const handleDelete = (id) => {
+    setPersons(persons.filter((person) => person.id !== id));
+    window.confirm("delete");
   };
 
   return (
@@ -56,7 +60,11 @@ const App = () => {
       />
 
       <h3>Numbers</h3>
-      <Person persons={persons} filtered={filtered} />
+      <Person
+        persons={persons}
+        filtered={filtered}
+        handleDelete={handleDelete}
+      />
     </>
   );
 };
